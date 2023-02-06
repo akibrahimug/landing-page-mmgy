@@ -1,0 +1,206 @@
+body {
+  background: url("../public/page-background.svg");
+  padding: 0;
+  margin: 0;
+
+  // top heading
+  .page-title {
+    margin: 40px 0 20px 0;
+  }
+
+  //Both the top and bottom texts
+  .page-title,
+  .bottom-title {
+    text-shadow: 2px 2px 0 #ff7bac, 2px -2px 0 #ff7bac, -2px 2px 0 #ff7bac,
+      -2px -2px 0 #ff7bac, 2px 0px 0 #ff7bac, 0px 2px 0 #ff7bac,
+      -2px 0px 0 #ff7bac, 0px -2px 0 #ff7bac;
+    color: #ffffff;
+    text-align: center;
+    font-size: 25px;
+  }
+
+  // container holding the app
+  .app-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    // each door container
+    .door-container {
+      z-index: 10;
+      // each door
+      .door {
+        height: 500px;
+        width: 230px;
+        box-sizing: border-box;
+
+        .outer-border {
+          height: 100%;
+          width: 100%;
+          border: 5px solid #873e23;
+          box-sizing: border-box;
+        }
+
+        .inner-border {
+          height: 100%;
+          width: 100%;
+          border: 6px solid #e28743;
+          box-sizing: border-box;
+        }
+
+        .innermost-border {
+          height: 100%;
+          width: 100%;
+          border: 4px solid #873e23;
+          box-sizing: border-box;
+          position: relative;
+          display: flex;
+          justify-content: center;
+
+          .inner-door-vertical-segment {
+            height: 100%;
+            border: 2px solid #873e23;
+            box-sizing: border-box;
+            position: absolute;
+          }
+
+          .inner-door-horizontal-segment {
+            width: 100%;
+            box-sizing: border-box;
+            height: 100%;
+
+            .top,
+            .bottom,
+            .middle {
+              border: 2px solid #873e23;
+            }
+
+            .top {
+              position: absolute;
+              top: 100px;
+              width: 100%;
+            }
+
+            .middle {
+              position: absolute;
+              top: 230px;
+              width: 100%;
+            }
+
+            .bottom {
+              position: absolute;
+              bottom: 100px;
+              width: 100%;
+            }
+          }
+
+          .background-color-container {
+            width: 100%;
+            height: 100%;
+            background-color: #187288;
+            position: absolute;
+          }
+        }
+      }
+    }
+
+    .beach-image-container {
+      width: 100%; /* Set the width of the parent div */
+      height: 100%; /* Set the height of the parent div */
+      overflow: hidden; /* Hide any overflow */
+      position: absolute;
+      opacity: 0;
+    }
+
+    .fade-in {
+      opacity: 1;
+      transition: opacity 1s ease;
+    }
+
+    .background-color-container.active {
+      opacity: 0.6; // make windows transparent
+    }
+
+    // Image reviled when doors open
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 500px;
+    }
+
+    // animation keframes for sliding doors
+    .slide-left.active {
+      animation: slide-left 1s forwards;
+    }
+
+    .slide-right.active {
+      animation: slide-right 1s forwards;
+    }
+
+    .slide-left.deactive {
+      animation: slide-right-from-left 1s forwards;
+    }
+    .slide-right.deactive {
+      animation: slide-left-from-right 1s forwards;
+    }
+
+    @keyframes slide-left {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(-213%);
+      }
+    }
+
+    @keyframes slide-right {
+      from {
+        transform: translateX(0);
+      }
+      to {
+        transform: translateX(213%);
+      }
+    }
+
+    @keyframes slide-left-from-right {
+      from {
+        transform: translateX(213%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slide-right-from-left {
+      from {
+        transform: translateX(-213%);
+      }
+      to {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  // video player
+  .video-player-container {
+    display: none;
+  }
+
+  .bottom-info-container {
+    text-align: center;
+  }
+
+  .bottom-title {
+    margin: 5px;
+  }
+  p {
+    color: #ff7bac;
+    margin: 0;
+    font-weight: 700;
+    font-size: 25px;
+  }
+
+  .hide-bottom {
+    visibility: hidden;
+  }
+}

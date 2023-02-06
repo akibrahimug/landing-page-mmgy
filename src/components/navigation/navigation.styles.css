@@ -1,0 +1,12 @@
+.nav-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 2rem;
+  height: 3rem;
+  background-color: #187288;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.nav-container .nav-logos {
+  width: 260px;
+}/*# sourceMappingURL=navigation.styles.css.map */
